@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iglesia Live Overlay Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Iglesia Live Overlay Studio</h1>
+      <p>Controla etiquetas, fechas, anuncios, logos y alertas para OBS.</p>
+    </header>
+
+    <main class="layout">
+      <section class="control-panel card">
+        <h2>Panel de control</h2>
+
+        <div class="field-group">
+          <label for="nameInput">Etiqueta de nombre</label>
+          <input id="nameInput" type="text" placeholder="Ej: Pastor Juan Pérez" />
+          <div class="actions-row">
+            <button data-action="show-name">Mostrar</button>
+            <button class="muted" data-action="hide-name">Ocultar</button>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="dateInput">Fecha / Hora</label>
+          <input id="dateInput" type="text" placeholder="Ej: Domingo 10:30 AM" />
+          <div class="actions-row">
+            <button data-action="show-date">Mostrar</button>
+            <button class="muted" data-action="hide-date">Ocultar</button>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="announcementInput">Anuncio</label>
+          <textarea id="announcementInput" rows="3" placeholder="Escribe un anuncio importante..."></textarea>
+          <div class="actions-row">
+            <button data-action="show-announcement">Mostrar</button>
+            <button class="muted" data-action="hide-announcement">Ocultar</button>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="logoInput">URL del logo</label>
+          <input id="logoInput" type="text" placeholder="https://.../logo.png" />
+          <div class="actions-row">
+            <button data-action="show-logo">Mostrar</button>
+            <button class="muted" data-action="hide-logo">Ocultar</button>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="alertInput">Alerta en vivo</label>
+          <input id="alertInput" type="text" placeholder="Ej: Inicia oración especial en 2 minutos" />
+          <div class="actions-row">
+            <button data-action="show-alert">Mostrar</button>
+            <button class="muted" data-action="hide-alert">Ocultar</button>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="standbyInput">Lista de nombres en standby (uno por línea)</label>
+          <textarea id="standbyInput" rows="6" placeholder="Pastora Ana\nDiácono Luis\nGrupo de alabanza"></textarea>
+          <button data-action="save-standby">Guardar lista</button>
+          <div id="standbyList" class="standby-list"></div>
+        </div>
+
+        <div class="obs-links">
+          <p>Para OBS, agrega una fuente de navegador con esta URL:</p>
+          <code id="overlayUrl"></code>
+          <button class="copy" data-action="copy-url">Copiar URL</button>
+        </div>
+      </section>
+
+      <section class="preview-panel card">
+        <h2>Vista previa de salida</h2>
+        <div id="overlay" class="overlay-canvas">
+          <img id="logo" class="overlay-logo hidden" alt="Logo" />
+          <div id="dateBadge" class="overlay-date hidden"></div>
+          <div id="nameTag" class="overlay-name hidden"></div>
+          <div id="announcementBar" class="overlay-announcement hidden"></div>
+          <div id="alertBox" class="overlay-alert hidden"></div>
+          <button id="secretPanelBtn" class="secret-btn hidden" title="Volver al panel">◉</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
